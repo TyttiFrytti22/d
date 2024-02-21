@@ -1,0 +1,18 @@
+from django.db import models
+
+class User(models.Model):
+    email = models.EmailField(unique=True)
+    phone = models.CharField(max_length=20)
+    city = models.CharField(max_length=100)
+    avatar = models.ImageField(upload_to='avatars/')
+
+class Course(models.Model):
+    name = models.CharField(max_length=100)
+    preview = models.ImageField(upload_to='previews/')
+    description = models.TextField()
+
+class Lesson(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.TextField()
+    preview = models.ImageField(upload_to='previews/')
+    video_link = models.URLField()
